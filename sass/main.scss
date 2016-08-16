@@ -1,0 +1,39 @@
+/*------------------------------------*\
+    #MAIN
+\*------------------------------------*/
+
+/**
+ * Combine all the SASS components required to compile the main.css file.
+ **/
+
+
+/* = Settings = */
+
+@import "settings.general";
+
+
+
+
+
+/* = Base styling = */
+
+@import "base.main";
+@import "base.page";
+
+
+
+
+/* = Generic styling = */
+
+@import "generic.fonts";
+
+
+
+
+/* = Components = */
+
+@import "components.gadget";
+@import "components.nav";
+@import "components.primary-navigation";
+@import "components.quickjump";
+@import "components.site-header";

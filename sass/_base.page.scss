@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    #PAGE
+\*------------------------------------*/
+
+
+html {
+    background: url("innes-bg.jpg") no-repeat center center fixed;
+    // background: url("file:///C:/Program Files (x86)/SiteKiosk/Html/kiosk/images/innes-bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+
+
+}
+
+h1 {
+    color: #fff;
+    font-family: "Dewnrger", "Frutiger LT Com", Helvetica, Arial, sans-serif;
+}
+
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+    display: none !important;
+}

@@ -1,0 +1,87 @@
+
+/*------------------------------------*\
+    #MODULE
+\*------------------------------------*/
+
+/**
+ * Shared (extend-only) styling for the kiosk navs.
+ *
+ * Because this nav is required by several other components, but must be
+ * included in the code before they are: *
+ * 1. Set a default flag to show that this hasn't already been loaded
+ *
+ * 2. Only add the classes if they haven't already been added
+ *
+ * 3. Set a flag to show that the contents have been loaded
+ **/
+
+$sagovau-nav-loaded: false !default; /* [1] */
+
+@if $sagovau-nav-loaded != true {    /* [2] */
+
+    /*nav*/%nav {
+        padding: 40px 0 0;
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+        /*li*/%nav__item {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            list-style: none;
+        }
+
+
+        /*a*/%nav__link {
+            font-family: "Dewnrger", "Frutiger LT Com", Helvetica, Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 200;
+            color: #fff;
+            display: block;
+            text-decoration: none;
+            font-weight: normal;
+
+            i {
+                background-color: $sagovau-color-brand;
+                border-radius: 1em;
+                box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.58);
+                display: block;
+                height: 140px;
+                margin: 0.4em auto 1.5em;
+                width: 140px;
+                background-size: 180px;
+                background-position: 50% 175px;
+                background-repeat: no-repeat;
+
+                &.icon-home {
+                    background-image: url("innes-icon-home.svg");
+                }
+
+                &.icon-region {
+                    background-image: url("innes-icon-region.svg");
+                    background-size: 150px;
+                    background-position: 50% 172px;
+                }
+
+                &.icon-entry {
+                    background-image: url("innes-icon-entry.svg");
+                }
+            }
+
+            &:hover {
+                i {
+                    background-color: darken(#08713e, 5%);
+                }
+            }
+        }
+
+
+    // Mark the nav as loaded
+
+    $sagovau-nav-loaded: true;   /* [3] */
+
+}

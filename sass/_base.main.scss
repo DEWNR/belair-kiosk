@@ -1,0 +1,129 @@
+/*------------------------------------*\
+    #MAIN
+\*------------------------------------*/
+
+// scss-lint:disable all
+
+
+main {
+    margin: 0 auto;
+    min-height: 480px;
+    padding-top: 180px;
+    text-align: center;
+    width: percentage(1800 / 2560);
+
+    &.main--home {
+
+        @media (min-width: 1281px) {
+            width: percentage(2300 / 2560);
+        }
+
+        @media (min-width: 2100px) {
+            width: percentage(1800 / 2560);
+        }
+    }
+
+
+    &.main--internal {
+        margin: 0 0 100px;
+        padding-top: 65px;
+        margin-left: percentage(700 / 2560);
+        float: left;
+        text-align: left;
+        width: percentage(1480 / 2560);
+
+        @media (min-width: 1281px) {
+            margin-left: percentage(600 / 2560);
+            width: percentage(1580 / 2560);
+        }
+
+        @media (min-width: 2100px) {
+            margin-left: percentage(500 / 2560);
+            width: percentage(1680 / 2560);
+        }
+    }
+}
+
+
+.main__title {
+    font-size: 80px;
+    width: percentage(1600 / 1800);
+    margin: 0 auto 0.4em;
+
+    span {
+        display: block;
+    }
+
+    @media (min-width: 1281px) {
+        font-size: 120px;
+        letter-spacing: -0.03em;
+        line-height: 1em;
+    }
+
+    @media (min-width: 2100px) {
+        font-size: 140px;
+    }
+}
+
+.main__caption {
+    color: #fff;
+    font-family: "Frutiger LT Com", Helvetica, Arial, sans-serif;
+    font-size: 40px;
+}
+
+
+
+
+
+#toolbar-cart {
+    div.shopping-cart.BE.auto-collapse {
+        div.cartItems {
+            padding: 0;
+            border: 0;
+        }
+
+        div.checkout {
+            display: block;
+
+            a {
+                background: 0 0;
+                border: 0;
+                float: none;
+                margin: 0;
+                min-height: initial;
+                display: block;
+                font-weight: 200;
+                text-align: left;
+                font-size: 20px;
+            }
+        }
+
+        div.totalDisplay {
+            background: 0 0;
+            border: 0;
+            width: 100%;
+            text-align: left;
+            display: none;
+
+            a {
+                width: auto;
+
+                &:after {
+                    content: 'View cart';
+                    padding: 0 0 0 50px;
+                    font-size: 20px;
+                    font-weight: 200;
+                }
+
+                span {
+                    background: none;
+                }
+            }
+        }
+
+        .noItems {
+            display: none;
+        }
+
+    }
+}

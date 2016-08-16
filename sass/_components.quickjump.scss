@@ -1,0 +1,51 @@
+/*------------------------------------*\
+    #QUICKJUMP-NAVIGATION
+\*------------------------------------*/
+
+
+// Make sure the "module" extend-only component is included before this content.
+
+@import "components.nav";
+
+
+/*nav*/.quickjump-navigation {
+    @extend %nav;
+
+    margin: 0 auto;
+}
+
+    /*li*/.quickjump-navigation__item {
+        @extend %nav__item;
+
+        padding: 0 80px;
+        display: inline-block;
+
+        span {
+            position: relative;
+            display: inline-block;
+            box-sizing: border-box;
+            width: 275px;
+            top: 62px;
+            line-height: 0.9em;
+        }
+
+        &.quickjump-navigation__item--region {
+            span {
+                top: 40px;
+            }
+        }
+    }
+
+
+    /*a*/.quickjump-navigation__link {
+        @extend %nav__link;
+
+        text-align: center;
+        font-size: 60px;
+
+        i {
+            height: 320px;
+            margin: -100px auto 1em;
+            width: 320px;
+        }
+    }

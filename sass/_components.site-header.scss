@@ -1,0 +1,17 @@
+/*------------------------------------*\
+    #SITE-HEADER
+\*------------------------------------*/
+
+
+/*div*/.site-header {
+    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: percentage(350 / 2560);
+}
+
+    /*img*/.site-header__logo {
+        width: 100%;
+    }
