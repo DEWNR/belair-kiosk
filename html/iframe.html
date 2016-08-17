@@ -29,7 +29,7 @@
 
         <div class="js-region-gadget" id="content"></div>
 
-        <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=7e5893292834eb2b34cd1d9b11437df9"></script>
+        <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
 
         <script>
 
@@ -93,7 +93,8 @@
 
                     if (typeof target.scrollHeight == 'number' && target.scrollHeight != frame.height) {
                         frame.height = target.scrollHeight;
-                        parent.postMessage(frame, 'http://www.environment.sa.gov.au');
+                        // parent.postMessage(frame, 'http://www.environment.sa.gov.au');
+                        parent.postMessage(frame, 'http://localhost:3000');
                     }
                 }, 300);
             }());

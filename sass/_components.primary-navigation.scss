@@ -48,15 +48,15 @@
         line-height: 1em;
 
         &.primary-navigation__link--home {
-            background-image: url("innes-icon-home.svg");
+            background-image: url("../images/innes-icon-home.svg");
         }
 
         &.primary-navigation__link--region {
-            background-image: url("innes-icon-region.svg");
+            background-image: url("../images/innes-icon-region.svg");
         }
 
         &.primary-navigation__link--entry {
-            background-image: url("innes-icon-entry.svg");
+            background-image: url("../images/innes-icon-entry.svg");
             background-size: 80px;
             background-position: -10px 50%;
         }

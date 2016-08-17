@@ -58,17 +58,17 @@ $sagovau-nav-loaded: false !default; /* [1] */
                 background-repeat: no-repeat;
 
                 &.icon-home {
-                    background-image: url("innes-icon-home.svg");
+                    background-image: url("../images/innes-icon-home.svg");
                 }
 
                 &.icon-region {
-                    background-image: url("innes-icon-region.svg");
+                    background-image: url("../images/innes-icon-region.svg");
                     background-size: 150px;
                     background-position: 50% 172px;
                 }
 
                 &.icon-entry {
-                    background-image: url("innes-icon-entry.svg");
+                    background-image: url("../images/innes-icon-entry.svg");
                 }
             }
 

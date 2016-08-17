@@ -29,7 +29,7 @@
             line-height: 0.9em;
         }
 
-        &.quickjump-navigation__item--region {
+        &.quickjump-navigation__item--facilities {
             span {
                 top: 40px;
             }
@@ -41,7 +41,7 @@
         @extend %nav__link;
 
         text-align: center;
-        font-size: 60px;
+        font-size: 58px;
 
         i {
             height: 320px;

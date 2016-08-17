@@ -110,11 +110,15 @@
                     </li>
 
                     <li class="primary-navigation__item">
-                        <a class="primary-navigation__link  primary-navigation__link--region" href="#/region">Camping</a>
+                        <a class="primary-navigation__link  primary-navigation__link--entry" href="#/vehicle-entry-fees">Vehicle entry fees</a>
                     </li>
 
                     <li class="primary-navigation__item">
-                        <a class="primary-navigation__link  primary-navigation__link--entry" href="#/tours/67456">Park entry</a>
+                        <a class="primary-navigation__link  primary-navigation__link--entry" href="#/tennis-courts">Tennis courts</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--entry" href="#/facilities">Facilities</a>
                     </li>
                 </ul>
 
@@ -152,17 +156,21 @@
 
 
                 <div class="homepage" data-ng-cloak data-ng-show="mode == 'home'">
-                    <h1 class="main__title">Welcome to<span> </span>Innes National Park</h1>
+                    <h1 class="main__title">Welcome to<span> </span>Belair National Park</h1>
 
                     <nav class="quickjump-navigation">
 
                         <ul>
-                            <li class="quickjump-navigation__item  quickjump-navigation__item--region">
-                                <a class="quickjump-navigation__link" href="#/region"><span>Camping</span><i class="icon-region"></i></a>
+                            <li class="quickjump-navigation__item  quickjump-navigation__item--vehicle-entry-fees">
+                                <a class="quickjump-navigation__link" href="#/vehicle-entry-fees"><span>Vehicle entry fees</span><i class="icon-entry"></i></a>
                             </li>
 
                             <li class="quickjump-navigation__item  quickjump-navigation__item--entry">
-                                <a class="quickjump-navigation__link" href="#/tours/67456"><span>Park entry</span><i class="icon-entry"></i></a>
+                                <a class="quickjump-navigation__link" href="#/tennis-courts"><span>Tennis courts</span><i class="icon-entry"></i></a>
+                            </li>
+
+                            <li class="quickjump-navigation__item  quickjump-navigation__item--facilities">
+                                <a class="quickjump-navigation__link" href="#/facilities"><span>Facilities</span><i class="icon-entry"></i></a>
                             </li>
                         </ul>
 
@@ -170,13 +178,18 @@
                 </div>
 
 
-                <div class="gadget" data-ng-cloak data-ng-show="mode == 'region'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe" data-ng-src="iframe.html"></iframe>
+                <div class="gadget" data-ng-cloak data-ng-show="mode == 'vehicle-entry-fees'">
+                    <iframe class="gadget__iframe    js-region-gadget-iframe" data-ng-src="vehicle-entry-fees.html"></iframe>
                 </div>
 
 
-               <div class="details-gadget" data-ng-cloak data-ng-controller="DetailsController" data-ng-show="mode == 'details'">
-                    <div class="js-details-gadget" id="content"></div>
+                <div class="gadget" data-ng-cloak data-ng-show="mode == 'tennis-courts'">
+                    <iframe class="gadget__iframe    js-region-gadget-iframe" data-ng-src="tennis-courts.html"></iframe>
+                </div>
+
+
+                <div class="gadget" data-ng-cloak data-ng-show="mode == 'facilities'">
+                    <iframe class="gadget__iframe    js-region-gadget-iframe" data-ng-src="facilities.html"></iframe>
                 </div>
 
 
@@ -189,7 +202,7 @@
 
         <script type="text/javascript" src="//www.environment.sa.gov.au/files/templates/00000000-0000-0000-0000-000000000000/f88a7f3c-df7e-430a-825c-24cfa8dec9a8/jquery-191min.js"></script>
 
-        <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=7e5893292834eb2b34cd1d9b11437df9"></script>
+        <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
 
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
 
@@ -223,8 +236,20 @@
                             $scope.mainClass = "main--internal  main--tours";
                         }
 
-                    } else if (hash == "/region") {
-                        $scope.mode = "region";
+                    } else if (hash == "/vehicle-entry-fees") {
+                        $scope.mode = "vehicle-entry-fees";
+                        $scope.mainClass = "main--internal";
+                        $rootScope.showNav = true;
+                        $rootScope.toolbarClass = "toolbar--internal";
+
+                    } else if (hash == "/tennis-courts") {
+                        $scope.mode = "tennis-courts";
+                        $scope.mainClass = "main--internal";
+                        $rootScope.showNav = true;
+                        $rootScope.toolbarClass = "toolbar--internal";
+
+                    } else if (hash == "/facilities") {
+                        $scope.mode = "facilities";
                         $scope.mainClass = "main--internal";
                         $rootScope.showNav = true;
                         $rootScope.toolbarClass = "toolbar--internal";
@@ -249,29 +274,7 @@
             });
 
 
-            // Details gadget controller
-            kioskApp.controller('DetailsController', function($scope) {
-                var bookingDate = new Date(),
-                    gadgetOptions = {
-                        vcID: 188,
-                        defaultDate: bookingDate,
-                        period: 1,
-                        showHoverInline: true,
-                        showQuantity: false,
-                        collapseRefineTools: false,
-                        thumbsInGrid: true
-                    },
-                    gadgetSelector = '.js-details-gadget';
 
-                $scope.name = 'DetailsController';
-
-                $scope.$on("$locationChangeSuccess", function () {
-                    if ($scope.$parent.mode === 'details') {
-                        $(gadgetSelector).empty();
-                        BE.gadget.details(gadgetSelector, gadgetOptions);
-                    }
-                });
-            });
 
 
             // Initialise the cart gadget
