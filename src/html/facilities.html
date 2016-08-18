@@ -14,71 +14,49 @@
 
             body {
                 box-sizing: content-box;
-                margin:     0;
+                margin:     0 auto;
                 min-height: 480px;
                 padding:    0;
+                max-width: 1666px;
+            }
+
+            #bookeasy__details-gadget div.details-gadget.BE div.priceGrid table tbody tr div.OperatorInfo {
+                line-height: 1.6;
+            }
+
+            #bookeasy__details-gadget div.details-gadget.BE div.priceGrid table tbody tr div.OperatorInfo strong {
+                display: inline-block;
+                width: 160px;
             }
 
         </style>
-
-        <link href="css/bookeasy-kiosk.css?v=1" rel="stylesheet">
 
     </head>
 
     <body>
 
-        <div class="js-details-gadget--f" id="content"></div>
+        <div id="bookeasy__details-gadget"></div>
 
-            <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-            <script>
+        <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
 
-            var bAllowBookings = true;
-            var bookeasyData = {};
-            var bookeasyType = 'tours'; // defaults to accomodation
-            var bookingDate = new Date(); // get today's date
-            var operatorIDs = productID = [65345]; // set operatorIDs to display
-            var operatorIDString = operatorIDs.join(); // create a string for the JSONP request
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+        <script src="js/bookeasy-mods.js"></script>
+
+        <script>
+
+            var operatorIDs = productID = [65345];
+            var operatorIDString = operatorIDs.join();
 
             productID = '65345';
 
-            $(function() {
-
-                // load details gadget
-                BE.gadget.details('.js-details-gadget--f', {
-                    defaultDate: bookingDate,
-                    descriptionHover: true,
-                    period: 1,
-                    productID: productID,
-                    showHoverInline: true,
-                    showQuantity: false,
-                    thumbsInGrid: true,
-                    type: bookeasyType,
-                    vcID: 188
-                });
-
-            });
-
-            // Add a resize listener to continuously update the frame height
-            // (Use a separate function so it's not affected by errors thrown
-            // by the gadget.)
-            (function () {
-                var frame = {},
-                    targetSelector = '.js-details-gadget--f';
-
-                setInterval(function () {
-                    var target = document.querySelector(targetSelector);
-
-                    if (typeof target.scrollHeight == 'number') {
-                        frame.height = target.scrollHeight;
-
-                        // parent.postMessage(frame, 'http://www.environment.sa.gov.au');
-                        parent.postMessage(frame, 'http://localhost:3000');
-                    }
-                }, 300);
-            }());
-
         </script>
+
+        <script src="js/bookeasy-details.js" inline></script>
+
+        <script src="js/bookeasy-cart.js" inline></script>
 
     </body>
 
