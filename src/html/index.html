@@ -179,17 +179,17 @@
 
 
                 <div class="gadget" data-ng-cloak data-ng-show="mode == 'vehicle-entry-fees'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe" data-ng-src="vehicle-entry-fees.html"></iframe>
+                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--1" data-ng-src="vehicle-entry-fees.html"></iframe>
                 </div>
 
 
                 <div class="gadget" data-ng-cloak data-ng-show="mode == 'tennis-courts'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe" data-ng-src="tennis-courts.html"></iframe>
+                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--2" data-ng-src="tennis-courts.html"></iframe>
                 </div>
 
 
                 <div class="gadget" data-ng-cloak data-ng-show="mode == 'facilities'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe" data-ng-src="facilities.html"></iframe>
+                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--3" data-ng-src="facilities.html"></iframe>
                 </div>
 
 
@@ -267,6 +267,7 @@
 
                 // Add a message listener to track iFrame height changes
                 window.addEventListener("message", function (event) {
+                    console.log(event);
                     if (typeof event.data.height === 'number') {
                         $('.js-region-gadget-iframe').height(event.data.height);
                     }
