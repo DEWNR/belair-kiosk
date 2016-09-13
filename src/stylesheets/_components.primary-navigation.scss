@@ -3,9 +3,9 @@
 \*------------------------------------*/
 
 // scss-lint:disable DuplicateProperty
-// Make sure the "module" extend-only component is included before this content.
+// Make sure the 'module' extend-only component is included before this content.
 
-@import "components.nav";
+@import 'components.nav';
 
 
 /*nav*/.primary-navigation {
@@ -48,17 +48,19 @@
         line-height: 1em;
 
         &.primary-navigation__link--home {
-            background-image: url("../images/innes-icon-home.svg");
+            background-image: url('../images/npsa-icon-home.svg');
         }
 
-        &.primary-navigation__link--region {
-            background-image: url("../images/innes-icon-region.svg");
+        &.primary-navigation__link--facilities {
+            background-image: url('../images/npsa-icon-facilities.svg');
+        }
+
+        &.primary-navigation__link--courts {
+            background-image: url('../images/npsa-icon-courts.svg');
         }
 
         &.primary-navigation__link--entry {
-            background-image: url("../images/innes-icon-entry.svg");
-            background-size: 80px;
-            background-position: -10px 50%;
+            background-image: url('../images/npsa-icon-entry--vehicle.svg');
         }
 
         &:hover {

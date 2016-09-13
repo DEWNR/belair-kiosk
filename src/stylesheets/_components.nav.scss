@@ -37,7 +37,7 @@ $sagovau-nav-loaded: false !default; /* [1] */
 
 
         /*a*/%nav__link {
-            font-family: "Dewnrger", "Frutiger LT Com", Helvetica, Arial, sans-serif;
+            font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
             font-size: 20px;
             font-weight: 200;
             color: #fff;
@@ -53,22 +53,24 @@ $sagovau-nav-loaded: false !default; /* [1] */
                 height: 140px;
                 margin: 0.4em auto 1.5em;
                 width: 140px;
-                background-size: 180px;
-                background-position: 50% 175px;
+                background-size: 150px;
+                background-position: 50% 150px;
                 background-repeat: no-repeat;
 
                 &.icon-home {
-                    background-image: url("../images/innes-icon-home.svg");
+                    background-image: url('../images/npsa-icon-home.svg');
                 }
 
-                &.icon-region {
-                    background-image: url("../images/innes-icon-region.svg");
-                    background-size: 150px;
-                    background-position: 50% 172px;
+                &.icon-facilities {
+                    background-image: url('../images/npsa-icon-facilities.svg');
+                }
+
+                &.icon-courts {
+                    background-image: url('../images/npsa-icon-courts.svg');
                 }
 
                 &.icon-entry {
-                    background-image: url("../images/innes-icon-entry.svg");
+                    background-image: url('../images/npsa-icon-entry--vehicle.svg');
                 }
             }
 
