@@ -1,14 +1,14 @@
 {
-  "name": "dewnr-belair-kiosk",
-  "version": "1.0.0",
-  "description": "A streamlined implementation of DEWNR's booking system for Belair National Park.",
+  "name": "parks",
+  "version": "2.0.0",
+  "description": "Responsive site templates for DEWNR's Parks website.",
   "engines": {
     "node": ">=0.12.0 ~5.9.0",
     "npm": ">=2.14.12 ~3.7.3"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/DEWNR/belair-kiosk.git"
+    "url": "git@bitbucket.org:dewnrinternet/parks.git"
   },
   "scripts": {
     "start": "gulp",
@@ -18,13 +18,15 @@
     "demo": "gulp production && gulp server"
   },
   "dependencies": {
-    "dewnr-bedrock": "0.2.7"
+    "dewnr-series-three": "^0.3.0"
   },
   "devDependencies": {
     "browser-sync": "2.11.1",
     "compression": "1.6.1",
     "del": "2.2.0",
     "express": "4.13.4",
+    "fancybox": "^3.0.0",
+    "gmaps": "^0.4.24",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "3.1.0",
     "gulp-changed": "1.3.0",
@@ -39,6 +41,7 @@
     "gulp-inline-source": "2.1.0",
     "gulp-jsoncombine": "1.0.3",
     "gulp-notify": "2.2.0",
+    "gulp-nunjucks-render": "2.0.0",
     "gulp-rename": "1.2.2",
     "gulp-replace": "0.5.4",
     "gulp-rev": "7.0.0",
@@ -48,15 +51,21 @@
     "gulp-sequence": "0.4.5",
     "gulp-sizereport": "1.1.3",
     "gulp-sourcemaps": "1.6.0",
+    "gulp-svgstore": "6.0.0",
     "gulp-uglify": "1.5.3",
     "gulp-util": "3.0.7",
     "gulp-watch": "4.3.5",
+    "inline-svg": "^2.2.3",
+    "jquery.mmenu": "^5.7.3",
     "lodash": "4.6.1",
     "lodash.compact": "^3.0.1",
     "morgan": "1.7.0",
     "open": "0.0.5",
     "pretty-hrtime": "1.0.2",
-    "require-dir": "0.3.0"
+    "require-dir": "0.3.0",
+    "slick-carousel": "^1.6.0",
+    "tablesaw": "^2.0.3"
   },
-  "license": "MIT"
+  "license": "CC-BY-4.0",
+  "author": "The DEWNR Internet Team <DEWNR.Internet@sa.gov.au>"
 }

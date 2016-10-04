@@ -2,11 +2,13 @@ var config       = require('../config')
 if(!config.tasks.html) return
 
 var browserSync  = require('browser-sync')
+var data         = require('gulp-data')
 var gulp         = require('gulp')
 var gulpif       = require('gulp-if')
 var handleErrors = require('../lib/handleErrors')
 var htmlmin      = require('gulp-htmlmin')
 var path         = require('path')
+var render       = require('gulp-nunjucks-render')
 var fs           = require('fs')
 var jsoncombine  = require("gulp-jsoncombine")
 var gulpSequence = require('gulp-sequence')

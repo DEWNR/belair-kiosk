@@ -93,9 +93,9 @@ linters:
     convention: hyphenated_lowercase # or 'camel_case', or 'snake_case', or a regex pattern
 
   NestingDepth:
-    enabled: true
+    enabled: false
     max_depth: 3
-    ignore_parent_selectors: false
+    ignore_parent_selectors: true
 
   PlaceholderInExtend:
     enabled: true
@@ -143,7 +143,7 @@ linters:
 
   SelectorFormat:
     enabled: true
-    convention: hyphenated_BEM # 'hyphenated_lowercase' or 'strict_BEM', or 'hyphenated_BEM', or 'snake_case', or 'camel_case', or a regex pattern
+    convention: hyphenated_BEM # or 'strict_BEM', or 'hyphenated_lowercase', or 'snake_case', or 'camel_case', or a regex pattern
 
   Shorthand:
     enabled: true
