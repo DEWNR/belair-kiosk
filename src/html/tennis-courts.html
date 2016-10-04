@@ -13,18 +13,22 @@
 
         <div class="js-details-gadget--tc" id="content"></div>
 
-            <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
+        <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
 
-            <script>
+        <script src="js/iframeResizer.contentWindow.js"></script>
+
+        <script>
 
             var bAllowBookings = true;
             var bookeasyData = {};
             var bookeasyType = 'tours'; // defaults to accomodation
             var bookingDate = new Date(); // get today's date
-            var operatorIDs = productID = [67622]; // set operatorIDs to display
-            var operatorIDString = operatorIDs.join(); // create a string for the JSONP request
-
-            productID = '67622';
+            var productID = '67622'; // set productID to display
+            var iFrameResizer = {
+                messageCallback: function(message){
+                    alert(message,parentIFrame.getId());
+                }
+            }
 
             $(function() {
 
@@ -43,23 +47,9 @@
 
             });
 
-            // Add a resize listener to continuously update the frame height
-            // (Use a separate function so it's not affected by errors thrown
-            // by the gadget.)
-            (function () {
-                var frame = {},
-                    targetSelector = '.js-details-gadget--tc';
-
-                setInterval(function () {
-                    var target = document.querySelector(targetSelector);
-
-                    if (typeof target.scrollHeight == 'number' && target.scrollHeight != frame.height) {
-                        frame.height = target.scrollHeight;
-                        parent.postMessage(frame, 'http://www.environment.sa.gov.au');
-                        // parent.postMessage(frame, 'http://localhost:3000');
-                    }
-                }, 300);
-            }());
+            window.iFrameResizer = {
+                targetOrigin: 'http://localhost:3000'
+            }
 
         </script>
 

@@ -122,7 +122,7 @@
                     </li>
                 </ul>
 
-                <p>Trouble with your booking? <br />please contact 8841 3400</p>
+                <p>Trouble with your booking? <br />please contact 8278 5477</p>
 
             </nav>
 
@@ -206,6 +206,8 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
 
+        <script src="js/iframeResizer.js"></script>
+
         <script>
 
             // create the module and name it kioskApp
@@ -263,15 +265,10 @@
                     } else {
                         $location.path("home");
                     }
+
+                    console.log($scope.mode);
                 });
 
-                // Add a message listener to track iFrame height changes
-                window.addEventListener("message", function (event) {
-                    console.log(event);
-                    if (typeof event.data.height === 'number') {
-                        $('.js-region-gadget-iframe').height(event.data.height);
-                    }
-                })
             });
 
 
@@ -297,8 +294,39 @@
                     gadgetSelector = '#toolbar-cart';
 
                 BE.gadget.cart(gadgetSelector, gadgetOptions);
-            }())
+            }());
 
+
+
+
+
+            iFrameResize({
+                log                     : false,                  // Enable console logging
+                enablePublicMethods     : true,                  // Enable methods within iframe hosted page
+                enableInPageLinks       : true,
+                checkOrigin             : false,
+                resizedCallback         : function(messageData){ // Callback fn when resize is received
+                    $('p#callback').html(
+                        '<b>Frame ID:</b> '    + messageData.iframe.id +
+                        ' <b>Height:</b> '     + messageData.height +
+                        ' <b>Width:</b> '      + messageData.width +
+                        ' <b>Event type:</b> ' + messageData.type
+                    );
+                },
+                messageCallback         : function(messageData){ // Callback fn when message is received
+                    $('p#callback').html(
+                        '<b>Frame ID:</b> '    + messageData.iframe.id +
+                        ' <b>Message:</b> '    + messageData.message
+                    );
+                    alert(messageData.message + ' (' + messageData.iframe.id + ')' );
+                },
+                closedCallback         : function(id){ // Callback fn when iFrame is closed
+                    $('p#callback').html(
+                        '<b>IFrame (</b>'    + id +
+                        '<b>) removed from page.</b>'
+                    );
+                }
+            });
         </script>
 
 

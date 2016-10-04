@@ -29,6 +29,12 @@
           },{
               "source": ["src/javascripts/bookeasy-cart.js"],
               "filename": "bookeasy-cart.js"
+          },{
+              "source": ["src/javascripts/iframeResizer.contentWindow.js"],
+              "filename": "iframeResizer.contentWindow.js"
+          },{
+              "source": ["src/javascripts/iframeResizer.js"],
+              "filename": "iframeResizer.js"
           }
       ],
       "extensions": ["js"]
