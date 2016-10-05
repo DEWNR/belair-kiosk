@@ -1,7 +1,7 @@
 // this script can be used standalone, or in combination with other scripts
 if (typeof(IMUtility) == 'undefined') {
     IMUtility = {};
-    IMUtility.init = function() { IMUtility.debug=1; if (typeof(wisDOM) != 'undefined') { jQuery(document).trigger('gadget.script.loaded'); } else { setTimeout('IMUtility.init();', 100); } };
+    IMUtility.init = function() { IMUtility.debug=0; if (typeof(wisDOM) != 'undefined') { jQuery(document).trigger('gadget.script.loaded'); } else { setTimeout('IMUtility.init();', 100); } };
     jQuery(document).ready(function() { IMUtility.init(); });
 }
 

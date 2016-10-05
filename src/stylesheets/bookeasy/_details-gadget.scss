@@ -21,7 +21,8 @@
         thead {
 
             td {
-                background: rgba(6, 89, 49, 0.95);
+                font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
+                background: rgb(6, 89, 49);
                 text-align: center;
                 padding: 5px 10px;
                 color: #fff;
@@ -33,8 +34,9 @@
                 &.date {
                     a {
                         display: block;
-                        font-size: 14px;
-                        line-height: 1;
+                        font-size: 12px;
+                        line-height: 1.1;
+                        font-weight: normal;
 
                         &.date {
                             color: #dca502;
@@ -51,7 +53,7 @@
 
             tr {
 
-                border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+                border-bottom: 1px solid #eee;
 
                 td {
                     background: none;
@@ -84,32 +86,23 @@
                 }
 
                 &.odd {
-                    background: rgba(255, 255, 255, 0.92);
+                    background: #f9f9f9;
                 }
 
                 &.even {
-                    background: rgba(255, 255, 255, 0.95);
+                    background: #fff;
                 }
             }
         }
     }
 
-    .be-info {
+}
 
-    }
 
-    .be-info__operatorname {
-
-    }
-
-    .be-info__roomname {
-
-    }
-
-    .be-info__actionbar {
-
-    }
-
+.im-grid-roominfo__roomname {
+    color: $sagovau-color-brand;
+    font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
+    font-size: 22px;
 }
 
 .im-grid__details {
@@ -118,7 +111,7 @@
 
 
 .im-grid-roominfo {
-    padding: 20px 10px 10px;
+    padding: 20px 10px 5px;
 }
 
     .im-grid-roominfo__roomname {
@@ -133,6 +126,7 @@
 
 .im-grid-operatorinfo {
     padding: 0 40px 10px 10px;
+    line-height: 1.4;
 
     p {
         margin: 0;

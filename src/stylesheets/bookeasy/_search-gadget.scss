@@ -5,7 +5,7 @@
 // scss-lint:disable all
 
 .search-gadget {
-    background: rgba(8, 113, 62, 0.95);
+    background: $sagovau-color-brand;
     border: 0;
     color: $sagovau-color-text-base;
     font-family: 'Frutiger LT Com', Helvetica, Arial, sans-serif;
@@ -20,13 +20,16 @@
     div.period,
     div.adults,
     div.children,
-    div.infants,
-    div.concessions,
-    div.students,
-    div.observers {
+    div.infants {
         display: inline-block;
         margin-right: 10px;
         width: 80px;
+    }
+
+    div.concessions,
+    div.students,
+    div.observers {
+        display: none;
     }
 
     select,
@@ -63,24 +66,14 @@
     }
 
     .label {
+        font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
         display: block;
         color: #fff;
+        overflow: hidden;
     }
 
     div.button   {
         display: none;
-
     }
 
-    span {
-
-        &.label {
-
-        }
-
-        &.input {
-
-        }
-
-    }
 }

@@ -8,7 +8,6 @@ jQuery(document).on('gadget.script.loaded', function() {
         IMUtility.detailsGadgetGridRendered = true;
 
         jQuery('.im-grid table tbody tr:first-child td.name a.more').IMElementExists(function() {
-            console.log('NOW');
             // Wait for room details link insertion before moving the row data
             arrangeRowData();
 
