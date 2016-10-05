@@ -5,204 +5,160 @@
 // scss-lint:disable all
 
 
-#content div.BE.details-gadget {
+.details-gadget {
     color: $sagovau-color-text-base;
     font-family: "Frutiger LT Com", Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 200;
 
-    div.embedded-search {  }
-
-    div.priceGrid {
-        border: 0;
+    .priceGrid {
 
         table {
-            thead {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        thead {
+
+            td {
+                background: rgba(6, 89, 49, 0.95);
+                text-align: center;
+                padding: 5px 10px;
+                color: #fff;
+
+                &.title {
+                    text-align: left;
+                }
+
+                &.date {
+                    a {
+                        display: block;
+                        font-size: 14px;
+                        line-height: 1;
+
+                        &.date {
+                            color: #dca502;
+                            font-weight: bold;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+        }
+
+        tbody {
+
+            tr {
+
+                border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+
                 td {
-                    background: #065931;
-                    background: rgba(6, 89, 49, 0.95);
+                    background: none;
 
-                    &.title {  }
-                    &.quantity {  }
-                    &.total {
+                    &.thumb {
+                        width: 15%;
+                        vertical-align: top;
+
+                        .thumb {
+                            padding: 10px 0 6px 10px;
+                        }
+
                         a {
+                            display: block;
+                        }
 
+                        img {
+                            width: 100%;
                         }
                     }
-                    &.date {  }
+
+                    &.quantity,
+                    &.total,
+                    &.date,
+                    &.price {
+                        width: 8%;
+                        padding: 10px;
+                        text-align: center;
+                    }
                 }
-            }
 
+                &.odd {
+                    background: rgba(255, 255, 255, 0.92);
+                }
 
-            tbody {
-                tr {
-                    border-bottom: 1px solid rgba(0, 0, 0, .03);
-
-                    &.odd {
-                        background: rgba(255, 255, 255, 0.85);
-                    }
-
-                    &.even {
-                        background: rgba(255, 255, 255, 0.9);
-                    }
-
-                    &.instant-confirmation {  }
-                    &.has-specials {  }
-                    &.has-last-minute {  }
-
-                    td {
-                        background: none;
-
-                        &.name {
-                            padding: 10px 10px 8px 15px;
-                            width: 800px;
-                            text-align: left;
-
-                            div.thumb {
-                                border: 0;
-                                height: 128px;
-                                overflow: hidden;
-                                padding: 0;
-                                width: 150px;
-
-                                img {
-                                    height: 150px;
-                                    width: 150px;
-                                }
-                            }
-
-                            a {
-                                color: $sagovau-color-text-base;
-                                font-size: 26px;
-                                text-align: left;
-
-                                &.more {
-                                    display: none;
-                                }
-                            }
-                        }
-
-                        &.quantity {  }
-
-                        &.tour-date {
-                            label {
-                                color: $sagovau-color-text-base;
-                                font-weight: 400;
-                            }
-                        }
-
-                        &.total {
-
-                            a {
-                                background-image: none;
-                                border: 0;
-                                max-width: 240px;
-
-                                &:hover {
-                                    background-color: $sagovau-color-brand;
-                                }
-                            }
-
-                            span.im-pricebutton-label {
-                                font-size: 16px;
-                                font-weight: 400;
-                            }
-
-                            span.im-pricebutton-amount {
-                                font-size: 26px;
-
-                                .number {
-                                    margin-top: -0.2em;
-                                    display: block;
-                                }
-                            }
-
-                            .sold-out {
-                                span.price {
-                                    font-size: 16px;
-                                    padding: 0.8em 0.2em;
-                                }
-                            }
-                        }
-
-                        &.price {
-                            font-size: 20px;
-                        }
-                    }
+                &.even {
+                    background: rgba(255, 255, 255, 0.95);
                 }
             }
         }
     }
 
-    div.priceGrid table tbody tr div.OperatorInfo {
-        padding: 0;
-        font-size: 16px;
-        display: block!important;
-        float: left;
-        clear: none;
-        width: 70%;
+    .be-info {
 
-        span.OperatorItemHeading {
-            color: #333;
-            margin-bottom: .5em;
-        }
+    }
 
-        div.OperatorItemContent {
-            color: #333;
-            padding: 0;
-            margin-bottom: 1em;
+    .be-info__operatorname {
 
-            p {
-                margin-top: 0;
-            }
-        }
+    }
 
-        .RoomConfig {
-            display: inline-block;
+    .be-info__roomname {
 
-            span.OperatorItemHeading {
-                display: none;
-            }
-        }
+    }
 
-        .MaxGuests {
-            display: inline-block;
+    .be-info__actionbar {
 
-            span.OperatorItemHeading {
-                display: none;
-            }
-
-            div.OperatorItemContent {
-                display: inline;
-
-                &:before {
-                    content: ', '
-                }
-
-                &:after {
-                    content: ' guest maximum'
-                }
-            }
-        }
-
-        .Description {
-            span.OperatorItemHeading {
-                display: none;
-            }
-        }
     }
 
 }
 
-.main--tours #content div.BE.details-gadget div.priceGrid table tbody tr div.OperatorInfo {
-    display: none!important;
+.im-grid__details {
+    vertical-align: top;
 }
 
-.main--tours #content div.BE.details-gadget div.search-gadget>div {
-    &.concessions,
-    &.students,
-    &.observers,
-    &.family {
-        display: none;
+
+.im-grid-roominfo {
+    padding: 20px 10px 10px;
+}
+
+    .im-grid-roominfo__roomname {
+        font-weight: normal;
+        margin: 0;
+
+        a {
+            font-weight: normal;
+        }
+    }
+
+
+.im-grid-operatorinfo {
+    padding: 0 40px 10px 10px;
+
+    p {
+        margin: 0;
+    }
+}
+
+.im-pricebutton {
+    background: #dca502;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    padding: .8em 10px .5em;
+    transition: background .3s ease-in-out;
+    outline: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 140px;
+
+    .number {
+        display: block;
+        font-size: 20px;
+    }
+
+    &:focus,
+    &:hover {
+        background: #08713e;
     }
 }

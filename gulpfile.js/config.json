@@ -21,14 +21,8 @@
       "dest": "js",
       "files": [
           {
-              "source": ["src/javascripts/bookeasy-details.js"],
-              "filename": "bookeasy-details.js"
-          },{
               "source": ["src/javascripts/bookeasy-utility.js", "src/javascripts/bookeasy-mods.js"],
               "filename": "bookeasy-mods.js"
-          },{
-              "source": ["src/javascripts/bookeasy-cart.js"],
-              "filename": "bookeasy-cart.js"
           },{
               "source": ["src/javascripts/iframeResizer.contentWindow.js"],
               "filename": "iframeResizer.contentWindow.js"
