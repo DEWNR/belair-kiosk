@@ -11,6 +11,8 @@
 
     <body>
 
+        <div id="toolbar-cart" data-ng-class="toolbarClass"></div>
+
         <div class="js-details-gadget--tc" id="content"></div>
 
         <script src="//www.environment.sa.gov.au/files/templates/00000000-0000-0000-0000-000000000000/f88a7f3c-df7e-430a-825c-24cfa8dec9a8/jquery-191min.js"></script>
@@ -54,6 +56,31 @@
             window.iFrameResizer = {
                 targetOrigin: 'http://localhost:3000'
             }
+
+
+
+
+
+            // Initialise the cart gadget
+            (function () {
+                var gadgetOptions = {
+                        vcID:"188",
+                        bookingURL:"http://www.environment.sa.gov.au/parks/Find_a_Park/Browse_by_region/Yorke_Peninsula/innes-national-park/kiosk/checkout",
+                        autoCollapse:true,
+                        overlaySettings:     {
+                            useBlockout:     true,
+                            overlayColour:   '#777',
+                            overlayOpacity:  0.5,
+                            innerBackground: '#FFF',
+                            zIndexLowest:    1000000,
+                            width:           1000,
+                            height:          false
+                        }
+                    },
+                    gadgetSelector = '#toolbar-cart';
+
+                BE.gadget.cart(gadgetSelector, gadgetOptions);
+            }());
 
         </script>
 
