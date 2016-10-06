@@ -225,6 +225,8 @@
                     var detailsRE = /\/([a-z]{5})\/(\d{5})/,
                         hash = $location.path();
 
+                        document.body.scrollTop = document.documentElement.scrollTop = 0;
+
                     if (detailsRE.test(hash)) {
                         hashMatch = hash.match(detailsRE);
                         $scope.operatorID = hashMatch[2];
@@ -265,7 +267,6 @@
                         $location.path("home");
                     }
 
-                    console.log($scope.mode);
                 });
 
             });

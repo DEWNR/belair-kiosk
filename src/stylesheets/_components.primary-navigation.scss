@@ -14,10 +14,10 @@
     position: fixed;
     float: left;
     width: percentage(400 / 2560);
-    background: #065931;
+    background: $sagovau-color-brand;
     border-radius: 1em;
-    margin: 2em;
-    padding: 1em;
+    margin: 65px 20px 20px;
+    padding: 20px;
 
     p {
         color: #fff;
@@ -63,7 +63,7 @@
         }
 
         &:hover {
-            background-color: darken(#065931, 5%);
+            background-color: darken($sagovau-color-brand, 5%);
             outline: 0;
         }
     }

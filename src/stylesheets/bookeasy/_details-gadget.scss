@@ -22,7 +22,7 @@
 
             td {
                 font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
-                background: rgb(6, 89, 49);
+                background: darken($sagovau-color-brand, 5%);
                 text-align: center;
                 padding: 5px 10px;
                 color: #fff;
@@ -96,6 +96,18 @@
         }
     }
 
+    .OperatorItemContent {
+        max-width: 850px;
+    }
+
+    .noResults {
+        font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
+        background: #fff;
+        margin: 0;
+        padding: 40px 20px;
+        font-weight: normal;
+        font-size: 22px;
+    }
 }
 
 

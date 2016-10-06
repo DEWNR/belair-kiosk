@@ -76,7 +76,7 @@ $sagovau-nav-loaded: false !default; /* [1] */
 
             &:hover {
                 i {
-                    background-color: darken(#08713e, 5%);
+                    background-color: darken($sagovau-color-brand, 5%);
                 }
             }
         }

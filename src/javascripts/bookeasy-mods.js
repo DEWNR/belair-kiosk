@@ -16,12 +16,14 @@ jQuery(document).on('gadget.script.loaded', function() {
 
         function arrangeRowData() {
 
+            thumbCount = 0;
+
             jQuery('.im-grid tbody tr').each(function() {
                 jQuery(this).find('td.name').addClass('im-grid__details').removeClass('name');
             });
 
             // Insert named containers for row details
-            jQuery('.im-grid__details .thumb').after('<div class="im-grid-roominfo"><h3 class="im-grid-roominfo__roomname"></h3><div class="im-grid-roominfo__actionbar"></div></div>');
+            jQuery('.im-grid__details .OperatorInfoMore').before('<div class="im-grid-roominfo"><h3 class="im-grid-roominfo__roomname"></h3><div class="im-grid-roominfo__actionbar"></div></div>');
 
             // add class to grid rows
             jQuery('.im-grid tbody tr').addClass('im-grid-item');
@@ -43,21 +45,33 @@ jQuery(document).on('gadget.script.loaded', function() {
 
 
             if (jQuery('.im-grid thead tr td.thumb').length>0 || jQuery('.im-grid tbody tr td.thumb').length>0) { return true; }
+
             jQuery('.im-grid thead tr').prepend('<td class="thumb"></td>');
             jQuery('.im-grid thead tr .title').empty();
 
             jQuery('.im-grid tbody tr').each(function() {
 
-                // Move thumb to its own column & add fancybox
-                $thumbImage = jQuery(this).find('.thumb > img');
-                imagePath = $thumbImage.attr('rel');
+                if (jQuery(this).find('td.im-grid__details div.thumb').size()) {
 
-                $thumbImage.attr('src', imagePath).wrap('<a class="be-fancybox" href="' + imagePath + '" rel="gallery" title="' + jQuery(this).find('a:not([class])').text() + '"></a>');
+                    // Move thumb to its own column & add fancybox
+                    $thumbImage = jQuery(this).find('.thumb > img');
+                    imagePath = $thumbImage.attr('rel');
+                    thumbCount = thumbCount + 1;
 
-                jQuery(this).find('td.im-grid__details').before('<td class="thumb"></td>');
-                jQuery(this).find('td.thumb').append(jQuery(this).find('div.thumb'));
+                    $thumbImage.attr('src', imagePath).wrap('<a class="be-fancybox" href="' + imagePath + '" rel="gallery" title="' + jQuery(this).find('a:not([class])').text() + '"></a>');
+
+                    jQuery(this).find('td.im-grid__details').before('<td class="thumb"></td>');
+                    jQuery(this).find('td.thumb').append(jQuery(this).find('div.thumb'));
+
+                }
 
             });
+
+            if (thumbCount == 0) {
+                // remove header thumb
+
+                jQuery('.im-grid thead tr td.thumb').remove();
+            }
 
         }
 

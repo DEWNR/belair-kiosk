@@ -7,8 +7,10 @@ html {
     background: url('../images/belair-bg-5.jpg') no-repeat center center fixed;
     // background: url("file:///C:/Program Files (x86)/SiteKiosk/Html/kiosk/images/innes-bg.jpg") no-repeat center center fixed;
     background-size: cover;
+}
 
-
+body {
+    margin: 0;
 }
 
 h1 {
