@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html data-ng-app="kioskApp" data-ng-controller="mainController">
+    <head>
+        <meta charset="utf-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title></title>
+    </head>
+    <body>
+
+        <ul>
+            <li data-ng-click="renderPath = 'vehicle-entry'">Vehicle entry</li>
+            <li data-ng-click="renderPath = 'tennis-courts'">Tennis courts</li>
+            <li data-ng-click="renderPath = 'facilities'">Facilities</li>
+        </ul>
+
+
+        <div id="bookeasy__details-gadget"></div>
+
+
+        <script src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+
+        <script>
+
+            var kioskApp = angular.module('kioskApp', []);
+
+
+            // create the controller and inject Angular's $scope
+            kioskApp.controller('mainController', function( $scope ) {
+
+                $scope.renderPath = 'home';
+
+                $scope.$watch('renderPath', function() {
+
+                    // Update the rendering.
+                    render();
+                });
+
+                render = function() {
+
+                    var isHome = ($scope.renderPath == 'home');
+                    var isEntry = ($scope.renderPath == 'vehicle-entry');
+                    var isCourts = ($scope.renderPath == 'tennis-courts');
+                    var isFacilities = ($scope.renderPath == 'facilities');
+
+                    $scope.initGadget($scope.renderPath);
+
+                };
+
+            });
+
+            kioskApp.run(function($rootScope) {
+                $rootScope.initGadget = function(path) {
+
+                    if (path != 'home') {
+                        switch (path) {
+                            case 'vehicle-entry':
+                                productID = '67625';
+                                break;
+                            case 'tennis-courts':
+                                productID = '67622';
+                                break
+                            case 'facilities':
+                                productID = '65345';
+                        }
+
+                        // document.getElementById('bookeasy__details-gadget').innerHTML = '';
+
+                        $w(function() {
+
+                            // load details gadget
+                            BE.gadget.details('#bookeasy__details-gadget', {
+                                defaultDate: new Date(),
+                                descriptionHover: true,
+                                period: 1,
+                                productID: productID,
+                                showHoverInline: true,
+                                showQuantity: false,
+                                thumbsInGrid: true,
+                                type: 'tours',
+                                vcID: 188
+                            });
+
+                        });
+                    }
+
+                }
+            });
+
+        </script>
+
+    </body>
+</html>
