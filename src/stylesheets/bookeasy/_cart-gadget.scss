@@ -4,6 +4,13 @@
 
 // scss-lint:disable all
 
+#toolbar-cart {
+    .item,
+    .total,
+    .totalDisplay {
+        display: none;
+    }
+}
 
 .add-to-cart-form {
     color: $sagovau-color-text-base;
