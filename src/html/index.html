@@ -123,7 +123,7 @@
         </div>
 
 
-        <script type="text/javascript" src="//www.environment.sa.gov.au/files/templates/00000000-0000-0000-0000-000000000000/f88a7f3c-df7e-430a-825c-24cfa8dec9a8/jquery-191min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
         <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
 
@@ -199,30 +199,16 @@
 
 
             iFrameResize({
-                log                     : false,                  // Enable console logging
-                enablePublicMethods     : true,                  // Enable methods within iframe hosted page
+                log                     : false,
+                enablePublicMethods     : true,
                 enableInPageLinks       : true,
                 checkOrigin             : false,
-                resizedCallback         : function(messageData){ // Callback fn when resize is received
-                    $('p#callback').html(
-                        '<b>Frame ID:</b> '    + messageData.iframe.id +
-                        ' <b>Height:</b> '     + messageData.height +
-                        ' <b>Width:</b> '      + messageData.width +
-                        ' <b>Event type:</b> ' + messageData.type
-                    );
-                },
-                messageCallback         : function(messageData){ // Callback fn when message is received
+                messageCallback         : function(messageData){
                     $('p#callback').html(
                         '<b>Frame ID:</b> '    + messageData.iframe.id +
                         ' <b>Message:</b> '    + messageData.message
                     );
-                    alert(messageData.message + ' (' + messageData.iframe.id + ')' );
-                },
-                closedCallback         : function(id){ // Callback fn when iFrame is closed
-                    $('p#callback').html(
-                        '<b>IFrame (</b>'    + id +
-                        '<b>) removed from page.</b>'
-                    );
+                    // alert(messageData.message + ' (' + messageData.iframe.id + ')' );
                 }
             });
         </script>
