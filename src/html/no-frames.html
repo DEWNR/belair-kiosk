@@ -8,23 +8,88 @@
         <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
 
         <title></title>
+
+        <link href="css/main.css" rel="stylesheet">
+        <link href="css/bookeasy.css" rel="stylesheet">
+
     </head>
     <body>
 
-        <ul>
-            <li data-ng-click="renderPath = 'vehicle-entry'">Vehicle entry</li>
-            <li data-ng-click="renderPath = 'tennis-courts'">Tennis courts</li>
-            <li data-ng-click="renderPath = 'facilities'">Facilities</li>
-        </ul>
+        <div class="wrapper">
 
 
-        <div id="bookeasy__details-gadget"></div>
+            <!-- Primary navigation -->
+
+            <nav class="primary-navigation" data-ng-cloak>
+
+                <ul>
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--home" href="#" data-ng-click="renderPath = 'home'; $event.stopPropagation()">Home</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--entry" href="#" data-ng-click="renderPath = 'vehicle-entry'; $event.stopPropagation()">Vehicle entry fees</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--courts" href="#" data-ng-click="renderPath = 'tennis-courts'; $event.stopPropagation()">Tennis courts</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--facilities" href="#" data-ng-click="renderPath = 'facilities'; $event.stopPropagation()">Facilities</a>
+                    </li>
+                </ul>
+
+                <p>Trouble with your booking? <br />please contact 8278 5477</p>
+
+            </nav>
+
+            <!-- End primary navigation -->
 
 
-        <script src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
+
+
+
+            <!-- Site header -->
+
+            <header class="site-header" role="banner">
+
+                <div class="site-header__banner">
+
+                    <img alt="National Parks South Australia" class="site-header__logo" src="images/npsa-logotype-vertical.svg">
+
+                </div><!-- /.site-header__banner -->
+
+            </header><!-- /.site-header -->
+
+            <!-- End site header -->
+
+
+
+
+
+            <!-- Main content -->
+
+            <main class="main  main--internal">
+
+                <div id="bookeasy__details-gadget" class="gadget"></div>
+
+            </main>
+
+            <!-- End main content -->
+
+
+        </div>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+        <script src="js/bookeasy-mods.js"></script>
+
+        <script src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
 
         <script>
 
@@ -70,7 +135,7 @@
                                 productID = '65345';
                         }
 
-                        // document.getElementById('bookeasy__details-gadget').innerHTML = '';
+                        document.getElementById('bookeasy__details-gadget').innerHTML = '';
 
                         $w(function() {
 
