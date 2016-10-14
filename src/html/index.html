@@ -102,17 +102,17 @@
 
 
                 <div class="gadget" data-ng-cloak data-ng-show="mode == 'vehicle-entry-fees'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--1" data-ng-src="vehicle-entry-fees.html"></iframe>
+                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--0" data-ng-src="vehicle-entry-fees.html"></iframe>
                 </div>
 
 
                 <div class="gadget" data-ng-cloak data-ng-show="mode == 'tennis-courts'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--2" data-ng-src="tennis-courts.html"></iframe>
+                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--1" data-ng-src="tennis-courts.html"></iframe>
                 </div>
 
 
                 <div class="gadget" data-ng-cloak data-ng-show="mode == 'facilities'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--3" data-ng-src="facilities.html"></iframe>
+                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--2" data-ng-src="facilities.html"></iframe>
                 </div>
 
 
@@ -121,6 +121,8 @@
             <!-- End main content -->
 
         </div>
+
+        <div class="page-overlay"></div>
 
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -204,11 +206,27 @@
                 enableInPageLinks       : true,
                 checkOrigin             : false,
                 messageCallback         : function(messageData){
-                    $('p#callback').html(
-                        '<b>Frame ID:</b> '    + messageData.iframe.id +
-                        ' <b>Message:</b> '    + messageData.message
-                    );
-                    // alert(messageData.message + ' (' + messageData.iframe.id + ')' );
+
+                    switch (messageData.message) {
+                        case 'has-cart-items':
+                            $('body').addClass('has-cart-items')
+                            break;
+
+                        case 'overlay-open':
+                            document.body.scrollTop = document.documentElement.scrollTop = 0;
+                            $('body').removeClass('overlay-closed').addClass('overlay-open')
+
+                            // todo: somehow get this to work
+                            // $('.page-overlay').on('click', function(){
+                            //     $('#' + messageData.iframe.id).find('#wdOverlayClose').trigger('click');
+                            // });
+
+                            break;
+
+                        case 'overlay-closed':
+                            $('body').removeClass('overlay-open').addClass('overlay-closed')
+                            break;
+                    }
                 }
             });
         </script>

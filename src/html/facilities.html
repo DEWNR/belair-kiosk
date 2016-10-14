@@ -12,7 +12,7 @@
 
     <body>
 
-        <div id="toolbar-cart" data-ng-class="toolbarClass"></div>
+        <div id="toolbar-cart" style="display: none;"></div>
 
         <div class="js-details-gadget--f" id="content"></div>
 
@@ -52,7 +52,15 @@
                     vcID: 188
                 });
 
-                $('.be-fancybox').fancybox();
+                $('.be-fancybox').fancybox({
+                    topRatio: 0,
+                    afterLoad: function(current, previous) {
+                        parentIFrame.sendMessage('overlay-open');
+                    },
+                    afterClose: function(current, previous) {
+                        parentIFrame.sendMessage('overlay-closed');
+                    }
+                });
 
                 $('#toolbar-cart .checkout').IMElementExists(function(){
                     parentIFrame.sendMessage('has-cart-items');
@@ -84,8 +92,8 @@
                         autoCollapse: true,
                         overlaySettings: {
                             useBlockout: true,
-                            overlayColour: '#777',
-                            overlayOpacity: 0.5,
+                            overlayColour: '#000',
+                            overlayOpacity: 0.75,
                             innerBackground: '#fff',
                             zIndexLowest: 1000000,
                             width: 1000,

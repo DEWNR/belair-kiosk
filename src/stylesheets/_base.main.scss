@@ -31,6 +31,8 @@ main {
         float: left;
         text-align: left;
         width: percentage(1480 / 2560);
+        position: relative;
+        z-index: 1000;
 
         @media (min-width: 1281px) {
             margin-left: percentage(600 / 2560);
