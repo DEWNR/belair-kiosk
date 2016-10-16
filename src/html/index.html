@@ -33,7 +33,7 @@
                     </li>
 
                     <li class="primary-navigation__item">
-                        <a class="primary-navigation__link  primary-navigation__link--entry" href="#/vehicle-entry-fees">Vehicle entry fees</a>
+                        <a class="primary-navigation__link  primary-navigation__link--entry" href="#/vehicle-entry">Vehicle entry</a>
                     </li>
 
                     <li class="primary-navigation__item">
@@ -84,8 +84,8 @@
                     <nav class="quickjump-navigation">
 
                         <ul>
-                            <li class="quickjump-navigation__item  quickjump-navigation__item--vehicle-entry-fees">
-                                <a class="quickjump-navigation__link" href="#/vehicle-entry-fees"><span>Vehicle entry fees</span><i class="icon-entry"></i></a>
+                            <li class="quickjump-navigation__item  quickjump-navigation__item--vehicle-entry">
+                                <a class="quickjump-navigation__link" href="#/vehicle-entry"><span>Vehicle entry</span><i class="icon-entry"></i></a>
                             </li>
 
                             <li class="quickjump-navigation__item  quickjump-navigation__item--courts">
@@ -101,8 +101,8 @@
                 </div>
 
 
-                <div class="gadget" data-ng-cloak data-ng-show="mode == 'vehicle-entry-fees'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--0" data-ng-src="vehicle-entry-fees.html"></iframe>
+                <div class="gadget" data-ng-cloak data-ng-show="mode == 'vehicle-entry'">
+                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--0" data-ng-src="vehicle-entry.html"></iframe>
                 </div>
 
 
@@ -165,8 +165,8 @@
                             $scope.mainClass = "main--internal  main--tours";
                         }
 
-                    } else if (hash == "/vehicle-entry-fees") {
-                        $scope.mode = "vehicle-entry-fees";
+                    } else if (hash == "/vehicle-entry") {
+                        $scope.mode = "vehicle-entry";
                         $scope.mainClass = "main--internal";
                         $rootScope.showNav = true;
                         $rootScope.toolbarClass = "toolbar--internal";
