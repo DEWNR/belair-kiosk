@@ -24,10 +24,7 @@
               "source": ["src/javascripts/bookeasy-utility.js", "src/javascripts/bookeasy-mods.js"],
               "filename": "bookeasy-mods.js"
           },{
-              "source": ["src/javascripts/iframeResizer.contentWindow.js"],
-              "filename": "iframeResizer.contentWindow.js"
-          },{
-              "source": ["src/javascripts/iframeResizer.js"],
+              "source": ["src/javascripts/iframeResizer.contentWindow.js", "src/javascripts/iframeResizer.js"],
               "filename": "iframeResizer.js"
           }
       ],
