@@ -6,7 +6,7 @@
         <title>Tennis courts</title>
 
         <link href="css/bookeasy.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
 
     </head>
 
@@ -14,10 +14,10 @@
 
         <div id="toolbar-cart" style="display: none;"></div>
 
-        <div class="js-details-gadget--tc" id="content"></div>
+        <div id="bookeasy__cart-gadget"></div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
         <script src="js/bookeasy-mods.js"></script>
 
@@ -40,10 +40,10 @@
             $(function() {
 
                 // load details gadget
-                BE.gadget.details('.js-details-gadget--tc', {
+                BE.gadget.details('#bookeasy__cart-gadget', {
                     defaultDate: bookingDate,
                     descriptionHover: true,
-                    period: 7,
+                    period: 1,
                     productID: productID,
                     showHoverInline: true,
                     showQuantity: false,
