@@ -47,6 +47,8 @@
 
                 <p>Trouble with your booking? <br />please contact 8278 5477</p>
 
+                <div id="toolbar-cart"></div>
+
             </nav>
 
             <!-- End primary navigation -->
@@ -200,6 +202,38 @@
 
 
 
+            $(function() {
+                // init cart gadget
+                loadCartGadget();
+            });
+
+
+
+
+
+            function loadCartGadget() {
+                var gadgetOptions = {
+                        vcID: '188',
+                        bookingURL: './checkout.html',
+                        autoCollapse: true,
+                        overlaySettings: {
+                            useBlockout: true,
+                            overlayColour: '#000',
+                            overlayOpacity: 0.75,
+                            innerBackground: '#fff',
+                            zIndexLowest: 1000000,
+                            width: 1000,
+                            height: false
+                        }
+                    },
+                    gadgetSelector = '#toolbar-cart';
+
+                BE.gadget.cart(gadgetSelector, gadgetOptions);
+            }
+
+
+
+
             iFrameResize({
                 log                     : false,
                 enablePublicMethods     : true,
@@ -210,6 +244,13 @@
                     switch (messageData.message) {
                         case 'has-cart-items':
                             $('body').addClass('has-cart-items')
+
+                            // clear content so we can re-init
+                            $('#toolbar-cart').empty();
+
+                            //  re-init cart gadget
+                            loadCartGadget();
+
                             break;
 
                         case 'overlay-open':
