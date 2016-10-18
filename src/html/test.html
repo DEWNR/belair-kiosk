@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title></title>
+
+        <!-- Stylesheets -->
+        <link href="css/main.css" rel="stylesheet">
+        <!-- End Stylesheets -->
+
+    </head>
+
+    <body data-ng-app="kioskApp">
+
+
+        <div class="wrapper">
+
+
+            <!-- Site header -->
+            <header class="site-header" role="banner">
+
+                <div class="site-header__banner">
+
+                    <img alt="National Parks South Australia" class="site-header__logo" src="images/npsa-logotype-vertical.svg">
+
+                </div><!-- /.site-header__banner -->
+
+            </header><!-- /.site-header -->
+            <!-- End site header -->
+
+
+
+
+
+            <!-- Primary navigation -->
+            <nav class="primary-navigation" data-ng-show="$state.includes('details')" data-ng-cloak>
+
+                <ul>
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--home" ui-sref="home" ui-sref-active="active">Home</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--entry" ui-sref="details({ operatorID: '67625'})" ui-sref-active="active">Vehicle entry</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--courts" ui-sref="details({ operatorID: '67622'})" ui-sref-active="active">Tennis courts</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--facilities" ui-sref="details({ operatorID: '65345'})" ui-sref-active="active">Facilities</a>
+                    </li>
+                </ul>
+
+
+                <div id="bookeasy__cart-gadget"></div>
+
+
+            </nav>
+            <!-- End primary navigation -->
+
+
+
+
+
+            <!-- Main content -->
+            <main class="main" role="main" ng-class="{'main--internal': $state.includes('details')}" data-ui-view>
+
+                <div id="bookeasy__details-gadget" data-ng-show="$state.includes('details')"></div>
+
+            </main>
+            <!-- End main content -->
+
+        </div>
+
+
+
+
+
+        <script type="text/ng-template" id="partial-home.html">
+
+            <h1 class="main__title">Welcome to<span> </span>Belair National Park</h1>
+
+            <nav class="quickjump-navigation" role="navigation">
+
+                <ul>
+                    <li class="quickjump-navigation__item  quickjump-navigation__item--vehicle-entry">
+                        <a class="quickjump-navigation__link" ui-sref="details({ operatorID: '67625'})" ui-sref-active="active"><span>Vehicle entry</span><i class="icon-entry"></i></a>
+                    </li>
+
+                    <li class="quickjump-navigation__item  quickjump-navigation__item--courts">
+                        <a class="quickjump-navigation__link" ui-sref="details({ operatorID: '67622'})" ui-sref-active="active"><span>Tennis courts</span><i class="icon-courts"></i></a>
+                    </li>
+
+                    <li class="quickjump-navigation__item  quickjump-navigation__item--facilities">
+                        <a class="quickjump-navigation__link" ui-sref="details({ operatorID: '65345'})" ui-sref-active="active"><span>Facilities</span><i class="icon-facilities"></i></a>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </script>
+
+
+
+
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+        <script>
+            // BEcssOverride = 'none';
+        </script>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+
+        <script src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
+
+        <script>
+
+            var kioskApp = angular.module('kioskApp', ['ui.router']);
+
+            kioskApp.config(function($stateProvider, $urlRouterProvider) {
+
+                $urlRouterProvider.otherwise('/home');
+
+                    $stateProvider
+
+                        .state('home', {
+                            url: '/home',
+                            templateUrl: 'partial-home.html'
+                        })
+
+                        .state('details', {
+                            url: '/tours/:operatorID',
+                            controller: function($scope, $stateParams) {
+                                // get the id
+                                $scope.id = $stateParams.operatorID;
+
+                                $scope.initGadget($scope.id);
+                            }
+                        });
+
+            }); // closes $kioskApp.config()
+
+
+            kioskApp.run(function($rootScope, $state) {
+
+                $rootScope.$state = $state;
+
+                $rootScope.initGadget = function(id) {
+
+                    // empty gadget
+                    document.getElementById('bookeasy__details-gadget').innerHTML = '';
+
+                    $w(function() {
+
+                        // load details gadget
+                        BE.gadget.details('#bookeasy__details-gadget', {
+                            defaultDate: new Date(),
+                            descriptionHover: true,
+                            period: 1,
+                            showHoverInline: true,
+                            showQuantity: false,
+                            thumbsInGrid: true,
+                            vcID: 188
+                        });
+
+                    });
+
+                }
+            });
+
+        </script>
+
+    </body>
+</html>
