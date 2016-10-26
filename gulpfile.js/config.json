@@ -23,6 +23,12 @@
           {
               "source": ["src/javascripts/bookeasy-utility.js", "src/javascripts/bookeasy-mods.js"],
               "filename": "bookeasy-mods.js"
+          },{
+              "source": ["src/javascripts/inline/details-gadget.js"],
+              "filename": "inline/details-gadget.js"
+          },{
+              "source": ["src/javascripts/inline/cart-gadget.js"],
+              "filename": "inline/cart-gadget.js"
           }
       ],
       "extensions": ["js"]

@@ -1,6 +1,4 @@
 {% set bookeasy_key = 'd5192d41822d0c987a0610af120d29bf' %}
-{% set bookeasy_type = bookeasy_type | default('tours') %}
-{% set operator_id = operator_id | default('') %}
 
 <!DOCTYPE html>
 <html>
@@ -48,7 +46,7 @@
 
                 <ul>
                     <li class="primary-navigation__item">
-                        <a class="primary-navigation__link  primary-navigation__link--home" href="../static.html">Home</a>
+                        <a class="primary-navigation__link  primary-navigation__link--home" href="/">Home</a>
                     </li>
 
                     <li class="primary-navigation__item">
@@ -92,32 +90,19 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 
-        <script src="js/bookeasy-mods.js"></script>
+        <script>
+            BEcssOverride = 'none';
+        </script>
 
         <script src="//gadgets.impartmedia.com/gadgets.jsz?key={{ bookeasy_key }}"></script>
 
-        <script>
+        {% block details_javascript %}{% endblock %}
 
-            $(function() {
+        <script src="js/bookeasy-mods.js"></script>
 
-                // load details gadget
-                BE.gadget.details('#bookeasy__details-gadget', {
-                    defaultDate: new Date(),
-                    descriptionHover: true,
-                    period: 1,
-                    productID: '{{ operator_id }}',
-                    showHoverInline: true,
-                    showQuantity: false,
-                    thumbsInGrid: true,
-                    type: '{{ bookeasy_type }}',
-                    vcID: 188
-                });
+        <script src="/js/inline/details-gadget.js" inline></script>
 
-                $('.be-fancybox').fancybox();
-
-            });
-
-        </script>
+        <script src="/js/inline/cart-gadget.js" inline></script>
 
     </body>
 </html>

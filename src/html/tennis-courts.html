@@ -1,3 +1,13 @@
 {% extends 'layouts/details.html' %}
 
-{% set operator_id = '67622' %}
+{% block details_javascript %}
+
+    <script>
+        var bookeasyType = 'tours';
+        var operatorID = '67622';
+        var gadgetDefaultDate = new Date();
+
+        gadgetDefaultDate.setDate(gadgetDefaultDate.getDate() + 1);
+    </script>
+
+{% endblock %}

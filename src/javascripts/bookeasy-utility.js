@@ -58,10 +58,6 @@ IMUtility.redirect = function(url_file) {
 };
 
 
-// gadgets only load minimal styles
-BEcssOverride = 'none';
-
-
 (function ($) {
 
     /**
