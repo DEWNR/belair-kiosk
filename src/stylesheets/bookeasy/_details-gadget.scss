@@ -5,117 +5,41 @@
 // scss-lint:disable all
 
 
+#bookeasy__details-gadget {
+    font-family: $sagovau-font-family-base;
+    font-size: $sagovau-font-size-base;
+}
+
 .details-gadget {
     color: $sagovau-color-text-base;
-    font-family: 'Frutiger LT Com', Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-family: $sagovau-font-family-base;
+    font-size: $sagovau-font-size-base;
     font-weight: 200;
 
-    .priceGrid {
+    .name {
 
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+        > a {
+            color: $sagovau-color-brand;
+            font-family: $sagovau-font-family-highlight;
+            font-size: 22px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            display: inline-block;
+            padding-top: 20px;
+            padding-left: 20px;
 
-        thead {
-
-            td {
-                font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
-                background: darken($sagovau-color-brand, 5%);
-                text-align: center;
-                padding: 5px 10px;
-                color: #fff;
-                font-size: 16px;
-                font-weight: normal;
-
-                &.title {
-                    text-align: left;
-                }
-
-                &.date {
-                    a {
-                        display: block;
-                        font-size: 12px;
-                        line-height: 1.1;
-                        font-weight: normal;
-
-                        &.date {
-                            color: #dca502;
-                            font-weight: bold;
-                            font-size: 16px;
-                        }
-                    }
-                }
-            }
-
-        }
-
-        tbody {
-
-            tr {
-
-                border-bottom: 1px solid #eee;
-
-                td {
-                    background: none;
-
-                    &.thumb {
-                        width: 15%;
-                        vertical-align: top;
-
-                        .thumb {
-                            padding: 10px 0 6px 10px;
-                        }
-
-                        a {
-                            display: block;
-                        }
-
-                        img {
-                            width: 100%;
-                        }
-                    }
-
-                    &.quantity,
-                    &.total,
-                    &.date,
-                    &.price {
-                        width: 8%;
-                        padding: 10px;
-                        text-align: center;
-                    }
-                }
-
-                &.odd {
-                    background: #f9f9f9;
-                }
-
-                &.even {
-                    background: #fff;
-                }
+            &.OperatorInfoMore,
+            &.OperatorInfoLess {
+                display: none;
             }
         }
-    }
-
-    .OperatorItemContent {
-        max-width: 850px;
-    }
-
-    .noResults {
-        font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
-        background: #fff;
-        margin: 0;
-        padding: 40px 20px;
-        font-weight: normal;
-        font-size: 22px;
     }
 }
 
 
 .im-grid-roominfo__roomname {
     color: $sagovau-color-brand;
-    font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
+    font-family: $sagovau-font-family-highlight;
     font-size: 22px;
 }
 
@@ -144,29 +68,5 @@
 
     p {
         margin: 0;
-    }
-}
-
-.im-pricebutton {
-    background: #dca502;
-    border: 0;
-    border-radius: 5px;
-    color: #fff;
-    display: block;
-    padding: .8em 10px .5em;
-    transition: background .3s ease-in-out;
-    outline: 0;
-    text-align: center;
-    text-decoration: none;
-    width: 140px;
-
-    .number {
-        display: block;
-        font-size: 20px;
-    }
-
-    &:focus,
-    &:hover {
-        background: #08713e;
     }
 }

@@ -1,64 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" class="no-js" prefix="og: http://ogp.me/ns#" data-ng-app="kioskApp">
-
+<html>
     <head>
-
         <meta charset="utf-8">
 
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <title></title>
 
         <!-- Stylesheets -->
-
         <link href="css/main.css" rel="stylesheet">
-
         <!-- End Stylesheets -->
 
     </head>
 
+    <body data-ng-app="kioskApp">
 
-    <body>
 
         <div class="wrapper">
 
-            <!-- Primary navigation -->
-
-            <nav class="primary-navigation" data-ng-cloak data-ng-show="showNav">
-
-                <ul>
-                    <li class="primary-navigation__item">
-                        <a class="primary-navigation__link  primary-navigation__link--home" href="#/home">Home</a>
-                    </li>
-
-                    <li class="primary-navigation__item">
-                        <a class="primary-navigation__link  primary-navigation__link--entry" href="#/vehicle-entry">Vehicle entry</a>
-                    </li>
-
-                    <li class="primary-navigation__item">
-                        <a class="primary-navigation__link  primary-navigation__link--courts" href="#/tennis-courts">Tennis courts</a>
-                    </li>
-
-                    <li class="primary-navigation__item">
-                        <a class="primary-navigation__link  primary-navigation__link--facilities" href="#/facilities">Facilities</a>
-                    </li>
-                </ul>
-
-                <p>Trouble with your booking? <br />please contact 8278 5477</p>
-
-                <div id="toolbar-cart"></div>
-
-            </nav>
-
-            <!-- End primary navigation -->
-
-
-
-
 
             <!-- Site header -->
-
             <header class="site-header" role="banner">
 
                 <div class="site-header__banner">
@@ -68,7 +31,6 @@
                 </div><!-- /.site-header__banner -->
 
             </header><!-- /.site-header -->
-
             <!-- End site header -->
 
 
@@ -76,203 +38,32 @@
 
 
             <!-- Main content -->
+            <main class="main" role="main">
 
-            <main class="main" data-ng-controller="MainController" data-ng-class="mainClass" role="main">
+                <h1 class="main__title">Welcome to<span> </span>Belair National Park</h1>
 
+                <nav class="quickjump-navigation" role="navigation">
 
-                <div class="homepage" data-ng-cloak data-ng-show="mode == 'home'">
-                    <h1 class="main__title">Welcome to<span> </span>Belair National Park</h1>
+                    <ul>
+                        <li class="quickjump-navigation__item  quickjump-navigation__item--vehicle-entry">
+                            <a class="quickjump-navigation__link" href="static/vehicle-entry.html"><span>Vehicle entry</span><i class="icon-entry"></i></a>
+                        </li>
 
-                    <nav class="quickjump-navigation">
+                        <li class="quickjump-navigation__item  quickjump-navigation__item--courts">
+                            <a class="quickjump-navigation__link" href="static/tennis-courts.html"><span>Tennis courts</span><i class="icon-courts"></i></a>
+                        </li>
 
-                        <ul>
-                            <li class="quickjump-navigation__item  quickjump-navigation__item--vehicle-entry">
-                                <a class="quickjump-navigation__link" href="#/vehicle-entry"><span>Vehicle entry</span><i class="icon-entry"></i></a>
-                            </li>
+                        <li class="quickjump-navigation__item  quickjump-navigation__item--facilities">
+                            <a class="quickjump-navigation__link" href="static/facilities.html"><span>Facilities</span><i class="icon-facilities"></i></a>
+                        </li>
+                    </ul>
 
-                            <li class="quickjump-navigation__item  quickjump-navigation__item--courts">
-                                <a class="quickjump-navigation__link" href="#/tennis-courts"><span>Tennis courts</span><i class="icon-courts"></i></a>
-                            </li>
-
-                            <li class="quickjump-navigation__item  quickjump-navigation__item--facilities">
-                                <a class="quickjump-navigation__link" href="#/facilities"><span>Facilities</span><i class="icon-facilities"></i></a>
-                            </li>
-                        </ul>
-
-                    </nav>
-                </div>
-
-
-                <div class="gadget" data-ng-cloak data-ng-show="mode == 'vehicle-entry'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--0" data-ng-src="vehicle-entry.html"></iframe>
-                </div>
-
-
-                <div class="gadget" data-ng-cloak data-ng-show="mode == 'tennis-courts'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--1" data-ng-src="tennis-courts.html"></iframe>
-                </div>
-
-
-                <div class="gadget" data-ng-cloak data-ng-show="mode == 'facilities'">
-                    <iframe class="gadget__iframe    js-region-gadget-iframe  js-region-gadget-iframe--2" data-ng-src="facilities.html"></iframe>
-                </div>
-
+                </nav>
 
             </main>
-
             <!-- End main content -->
 
         </div>
 
-        <div class="page-overlay"></div>
-
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-        <script type="text/javascript" src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
-
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
-
-        <script src="js/iframeResizer.js"></script>
-
-        <script>
-
-            // create the module and name it kioskApp
-            var kioskApp = angular.module('kioskApp', []);
-
-            kioskApp.controller('MainController', function ($scope, $location, $rootScope) {
-
-                $scope.$location = $location;
-                $scope.mode = "home";
-                $scope.mainClass = "main--home";
-                $rootScope.showNav = true;
-                $rootScope.toolbarClass = "toolbar--home";
-
-                // Listen for hash changes
-                $scope.$on("$locationChangeSuccess", function () {
-                    var detailsRE = /\/([a-z]{5})\/(\d{5})/;
-                    var hash = $location.path();
-
-                    document.body.scrollTop = document.documentElement.scrollTop = 0;
-
-                    if (detailsRE.test(hash)) {
-                        hashMatch = hash.match(detailsRE);
-                        $scope.operatorID = hashMatch[2];
-                        $scope.mode = "details"
-                        $scope.mainClass = "main--internal";
-                        $rootScope.showNav = true;
-                        $rootScope.toolbarClass = "toolbar--internal";
-
-                        if (hashMatch[1] === 'tours') {
-                            $scope.mainClass = "main--internal  main--tours";
-                        }
-
-                    } else if (hash == "/vehicle-entry") {
-                        $scope.mode = "vehicle-entry";
-                        $scope.mainClass = "main--internal";
-                        $rootScope.showNav = true;
-                        $rootScope.toolbarClass = "toolbar--internal";
-
-                    } else if (hash == "/tennis-courts") {
-                        $scope.mode = "tennis-courts";
-                        $scope.mainClass = "main--internal";
-                        $rootScope.showNav = true;
-                        $rootScope.toolbarClass = "toolbar--internal";
-
-                    } else if (hash == "/facilities") {
-                        $scope.mode = "facilities";
-                        $scope.mainClass = "main--internal";
-                        $rootScope.showNav = true;
-                        $rootScope.toolbarClass = "toolbar--internal";
-
-                    } else if (hash == "/home") {
-                        $scope.mode = "home";
-                        $scope.mainClass = "main--home";
-                        $rootScope.showNav = false;
-                        $rootScope.toolbarClass = "toolbar--internal";
-
-                    } else {
-                        $location.path("home");
-                    }
-
-                });
-
-            });
-
-
-
-
-            $(function() {
-                // init cart gadget
-                loadCartGadget();
-            });
-
-
-
-
-
-            function loadCartGadget() {
-                var gadgetOptions = {
-                        vcID: '188',
-                        bookingURL: './checkout.html',
-                        autoCollapse: true,
-                        overlaySettings: {
-                            useBlockout: true,
-                            overlayColour: '#000',
-                            overlayOpacity: 0.75,
-                            innerBackground: '#fff',
-                            zIndexLowest: 1000000,
-                            width: 1000,
-                            height: false
-                        }
-                    },
-                    gadgetSelector = '#toolbar-cart';
-
-                BE.gadget.cart(gadgetSelector, gadgetOptions);
-            }
-
-
-
-
-            iFrameResize({
-                log                     : false,
-                enablePublicMethods     : true,
-                enableInPageLinks       : true,
-                checkOrigin             : false,
-                messageCallback         : function(messageData){
-
-                    switch (messageData.message) {
-                        case 'has-cart-items':
-                            $('body').addClass('has-cart-items')
-
-                            // clear content so we can re-init
-                            $('#toolbar-cart').empty();
-
-                            //  re-init cart gadget
-                            loadCartGadget();
-
-                            break;
-
-                        case 'overlay-open':
-                            document.body.scrollTop = document.documentElement.scrollTop = 0;
-                            $('body').removeClass('overlay-closed').addClass('overlay-open')
-
-                            // todo: somehow get this to work
-                            // $('.page-overlay').on('click', function(){
-                            //     $('#' + messageData.iframe.id).find('#wdOverlayClose').trigger('click');
-                            // });
-
-                            break;
-
-                        case 'overlay-closed':
-                            $('body').removeClass('overlay-open').addClass('overlay-closed')
-                            break;
-                    }
-                }
-            });
-        </script>
-
-
     </body>
-
 </html>

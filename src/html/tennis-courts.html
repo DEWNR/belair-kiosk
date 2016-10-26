@@ -1,20 +1,89 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <base target="_parent" />
+        <meta charset="utf-8">
 
-        <title>Tennis courts</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title></title>
+
+        <!-- Stylesheets -->
+        <link href="css/main.css" rel="stylesheet">
         <link href="css/bookeasy.css" rel="stylesheet">
         <link href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+        <!-- End Stylesheets -->
 
     </head>
 
-    <body>
+    <body data-ng-app="kioskApp">
 
-        <div id="toolbar-cart" style="display: none;"></div>
 
-        <div id="bookeasy__cart-gadget"></div>
+        <div class="wrapper">
+
+
+            <!-- Site header -->
+            <header class="site-header" role="banner">
+
+                <div class="site-header__banner">
+
+                    <img alt="National Parks South Australia" class="site-header__logo" src="../images/npsa-logotype-vertical.svg">
+
+                </div><!-- /.site-header__banner -->
+
+            </header><!-- /.site-header -->
+            <!-- End site header -->
+
+
+
+
+
+            <!-- Primary navigation -->
+            <nav class="primary-navigation">
+
+                <ul>
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--home" href="../static.html">Home</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--entry" href="vehicle-entry.html">Vehicle entry</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--courts" href="tennis-courts.html">Tennis courts</a>
+                    </li>
+
+                    <li class="primary-navigation__item">
+                        <a class="primary-navigation__link  primary-navigation__link--facilities" href="facilities.html">Facilities</a>
+                    </li>
+                </ul>
+
+
+                <div id="bookeasy__cart-gadget"></div>
+
+
+            </nav>
+            <!-- End primary navigation -->
+
+
+
+
+
+            <!-- Main content -->
+            <main class="main  main--internal" role="main">
+
+                <div id="bookeasy__details-gadget"></div>
+
+            </main>
+            <!-- End main content -->
+
+        </div>
+
+
+
+
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
@@ -22,91 +91,29 @@
         <script src="js/bookeasy-mods.js"></script>
 
         <script src="//gadgets.impartmedia.com/gadgets.jsz?key=d5192d41822d0c987a0610af120d29bf"></script>
-        <script src="js/iframeResizer.js"></script>
 
         <script>
-
-            var bAllowBookings = true;
-            var bookeasyData = {};
-            var bookeasyType = 'tours'; // defaults to accomodation
-            var bookingDate = new Date(); // get today's date
-            var productID = '67622'; // set productID to display
-            var iFrameResizer = {
-                messageCallback: function(message){
-                    alert(message,parentIFrame.getId());
-                }
-            }
 
             $(function() {
 
                 // load details gadget
-                BE.gadget.details('#bookeasy__cart-gadget', {
-                    defaultDate: bookingDate,
+                BE.gadget.details('#bookeasy__details-gadget', {
+                    defaultDate: new Date(),
                     descriptionHover: true,
                     period: 1,
-                    productID: productID,
+                    productID: '67622',
                     showHoverInline: true,
                     showQuantity: false,
                     thumbsInGrid: true,
-                    type: bookeasyType,
+                    type: 'tours',
                     vcID: 188
                 });
 
-                $('.be-fancybox').fancybox({
-                    topRatio: 0,
-                    afterLoad: function(current, previous) {
-                        parentIFrame.sendMessage('overlay-open');
-                    },
-                    afterClose: function(current, previous) {
-                        parentIFrame.sendMessage('overlay-closed');
-                    }
-                });
-
-                $('#toolbar-cart .checkout').IMElementExists(function(){
-                    parentIFrame.sendMessage('has-cart-items');
-                });
-
-                $('#wdOverlayContent').IMElementExists(function(){
-                    parentIFrame.sendMessage('overlay-open');
-                });
-
-                $('body').on('click', '#wdOverlayBlockout', function() {
-                    parentIFrame.sendMessage('overlay-closed');
-                });
-
-                $('body').on('click', '#wdOverlayClose', function() {
-                    parentIFrame.sendMessage('overlay-closed');
-                });
+                $('.be-fancybox').fancybox();
 
             });
-
-
-
-
-
-            // Initialise the cart gadget
-            $(function() {
-                var gadgetOptions = {
-                        vcID: '188',
-                        bookingURL: './checkout.html',
-                        autoCollapse: true,
-                        overlaySettings: {
-                            useBlockout: true,
-                            overlayColour: '#000',
-                            overlayOpacity: 0.75,
-                            innerBackground: '#fff',
-                            zIndexLowest: 1000000,
-                            width: 1000,
-                            height: false
-                        }
-                    },
-                    gadgetSelector = '#toolbar-cart';
-
-                BE.gadget.cart(gadgetSelector, gadgetOptions);
-            }());
 
         </script>
 
     </body>
-
 </html>

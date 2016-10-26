@@ -4,16 +4,12 @@
 
 // scss-lint:disable all
 
-body {
-    margin: 0;
-}
-
 .search-gadget {
     background: $sagovau-color-brand;
     border: 0;
     color: $sagovau-color-text-base;
-    font-family: 'Frutiger LT Com', Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-family: $sagovau-font-family-base;
+    font-size: $sagovau-font-size-base;
     font-weight: 200;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -32,14 +28,18 @@ body {
 
     div.concessions,
     div.students,
-    div.observers {
+    div.observers,
+    div.maxPrice,
+    div.facilities,
+    div.accommTypes {
         display: none;
     }
 
     select,
-    .pseudo {
-        font-family: 'Frutiger LT Com', Helvetica, Arial, sans-serif;
-        font-size: 16px;
+    .pseudo,
+    .input input {
+        font-family: $sagovau-font-family-base;
+        font-size: $sagovau-font-size-base;
         padding: .5em;
         background: #fff;
         border: 2px solid #fff;
@@ -50,6 +50,7 @@ body {
         outline: 0;
         line-height: 1;
         font-weight: 200;
+        box-sizing: border-box;
 
         &:focus {
             border-color: #fff;
@@ -70,7 +71,7 @@ body {
     }
 
     .label {
-        font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
+        font-family: $sagovau-font-family-highlight;
         display: block;
         color: #fff;
         overflow: hidden;
@@ -80,6 +81,20 @@ body {
 
     div.button   {
         display: none;
+    }
+
+    .refineTools {
+        > div,
+        .byWhich {
+            margin: 0 0 10px;
+        }
+
+        .byWhich,
+        .byOrder {
+            width: 100px;
+            display: inline-block;
+            margin-right: 10px;
+        }
     }
 
 }
@@ -93,7 +108,7 @@ body {
 
 
 .wdDatePicker_calendar {
-    font-family: 'Frutiger LT Com', Helvetica, Arial, sans-serif;
+    font-family: $sagovau-font-family-base;
     background: #fff;
     color: $sagovau-color-text-base;
 
