@@ -1,6 +1,6 @@
 $(function() {
 
-    // load card gadget
+    // load cart gadget
     BE.gadget.cart('#bookeasy__cart-gadget', {
         autoCollapse: true,
         bookingURL: './checkout.html',
