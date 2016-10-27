@@ -13,11 +13,9 @@
 
     position: fixed;
     float: left;
-    width: percentage(400 / 2560);
-    background: $sagovau-color-brand;
-    border-radius: 10px;
+    width: percentage(440 / 2560);
     margin: 65px 20px 20px;
-    padding: 20px;
+    padding-top: 0;
 
     p {
         color: #fff;
@@ -29,10 +27,15 @@
     }
 }
 
+
+// padding: 20px;
+// background: $sagovau-color-brand;
+//
+
     /*li*/.primary-navigation__item {
         @extend %nav__item;
         text-align: left;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+        margin-bottom: 10px;
 
         &:last-child {
             border-bottom: 0;
@@ -44,11 +47,13 @@
         @extend %nav__link;
 
         font-size: 30px;
-        padding: 1em 1em 0.8em 80px;
+        padding: 1em 1em 0.8em 100px;
+        background-color: $sagovau-color-brand;
         background-repeat: no-repeat;
         background-size: 60px;
-        background-position: 0 50%;
+        background-position: 20px 50%;
         line-height: 1em;
+        border-radius: 10px;
 
         &.primary-navigation__link--home {
             background-image: url('../images/npsa-icon-home.svg');
