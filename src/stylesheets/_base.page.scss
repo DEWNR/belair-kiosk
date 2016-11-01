@@ -4,9 +4,12 @@
 
 
 html {
-    background: url('../images/belair-bg-5.jpg') no-repeat center center fixed;
-    // background: url("file:///C:/Program Files (x86)/SiteKiosk/Html/kiosk/images/innes-bg.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: url('../images/belair-bg-1920.jpg') no-repeat 0 0 fixed;
+    // background: url('file:///C:/Program Files (x86)/SiteKiosk/Html/kiosk/images/innes-bg.jpg') no-repeat center center fixed;
+
+    @media only screen and (min-width: 1921px) {
+        background-image: url('../images/belair-bg-2560.jpg');
+    }
 }
 
 body {
@@ -16,7 +19,7 @@ body {
 
 h1 {
     color: #fff;
-    font-family: "Dewnrger", "Frutiger LT Com", Helvetica, Arial, sans-serif;
+    font-family: 'Dewnrger', 'Frutiger LT Com', Helvetica, Arial, sans-serif;
 }
 
 [ng\:cloak],

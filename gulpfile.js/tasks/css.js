@@ -2,6 +2,7 @@ var config       = require('../config')
 if(!config.tasks.css) return
 
 var gulp         = require('gulp')
+var cssBase64    = require('gulp-css-base64')
 var gulpif       = require('gulp-if')
 var browserSync  = require('browser-sync')
 var sass         = require('gulp-sass')
@@ -22,6 +23,9 @@ var cssTask = function () {
     .pipe(sass(config.tasks.css.sass))
     .on('error', handleErrors)
     .pipe(autoprefixer(config.tasks.css.autoprefixer))
+    .pipe(cssBase64({
+            extensionsAllowed: ['.svg']
+    }))
     .pipe(gulpif(global.production, cssnano({autoprefixer: false})))
     .pipe(gulpif(!global.production, sourcemaps.write()))
     .pipe(gulp.dest(paths.dest))

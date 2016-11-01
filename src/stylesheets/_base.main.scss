@@ -8,7 +8,6 @@
 main {
     margin: 0 auto;
     min-height: 480px;
-    padding-top: 180px;
     text-align: center;
     width: percentage(1800 / 2560);
 
@@ -25,7 +24,7 @@ main {
 
 
     &.main--internal {
-        margin: 0 0 100px;
+        margin: 0 0 200px;
         padding-top: 65px;
         margin-left: percentage(700 / 2560);
         float: left;
@@ -51,6 +50,7 @@ main {
     font-size: 80px;
     width: percentage(1600 / 1800);
     margin: 0 auto 0.4em;
+    padding-top: 180px;
 
     span {
         display: block;
